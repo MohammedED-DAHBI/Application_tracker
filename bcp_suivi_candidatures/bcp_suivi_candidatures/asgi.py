@@ -1,5 +1,5 @@
 """
-ASGI config for bcp_suivi_candidature project.
+ASGI config for bcp_suivi_candidatures project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bcp_suivi_candidature.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bcp_suivi_candidatures.settings')
 
 application = get_asgi_application()

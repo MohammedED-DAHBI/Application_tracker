@@ -1,5 +1,5 @@
 """
-WSGI config for bcp_suivi_candidature project.
+WSGI config for bcp_suivi_candidatures project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bcp_suivi_candidature.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bcp_suivi_candidatures.settings')
 
 application = get_wsgi_application()
