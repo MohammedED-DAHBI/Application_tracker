@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Candidate list
+{% endblock title %}
+
+{% block body %}
+    Candidate list
+    <table>
+        {% for candidate in candidates %}
+            <tr>
+                <td>
+                    <a href="{% url 'candidates:details' slug=candidate.slug %}">
+                        {{ candidate.name }}
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock body %}
+
+
+

@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ candidate.name }}
+{% endblock %}
+
+{% block body %}
+    {{ candidate.name }}
+    {{ candidate.get_status.label }}
+{% endblock  %}
