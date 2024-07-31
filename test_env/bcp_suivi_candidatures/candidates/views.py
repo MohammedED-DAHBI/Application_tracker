@@ -4,10 +4,12 @@ from django.contrib.auth.decorators import login_required
 from . import forms
 # from django.http import HttpResponse
 
+@login_required(login_url="/users/login/")
 def candidates_list(request):
     candidates = Candidate.objects.all()
     return render(request, 'candidates/candidates_list.html', {'candidates': candidates})
 
+@login_required(login_url="/users/login/")
 def candidate_details(request, slug):
     candidate = Candidate.objects.get(slug=slug)
     return render(request, 'candidates/candidate_details.html', {'candidate': candidate})
