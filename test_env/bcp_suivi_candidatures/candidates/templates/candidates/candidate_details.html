@@ -7,4 +7,5 @@
 {% block body %}
     {{ candidate.name }}
     {{ candidate.get_status.label }}
+    <img src="{{ candidate.cv.url }}" alt="cv">
 {% endblock  %}
