@@ -1,0 +1,21 @@
+body {
+    background: url(../../media/orange_background.jpg);
+}
+
+form {
+    width: 40%;
+    height: 30vh;
+    margin: auto;
+    background-color: #f1f1f1;
+    padding: 5%;
+    border-radius: 15px;
+}
+
+button {
+    float: right;
+    background-color: #f39c12;
+    border-radius: 100px;
+    padding: 1rem;
+    font-weight: bold;
+    border: 1px solid black;
+}

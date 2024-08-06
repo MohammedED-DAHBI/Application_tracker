@@ -1,3 +1,9 @@
 * {
-    background-color: pink;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }

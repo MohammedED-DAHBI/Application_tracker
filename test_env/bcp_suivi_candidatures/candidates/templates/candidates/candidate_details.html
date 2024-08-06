@@ -4,8 +4,40 @@
     {{ candidate.name }}
 {% endblock %}
 
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/candidate_details.css' %}">
+{% endblock links %}
+
 {% block body %}
-    {{ candidate.name }}
-    {{ candidate.get_status.label }}
-    <img src="{{ candidate.cv.url }}" alt="cv">
-{% endblock  %}
+<main>
+    <form action="{% url 'candidates:details' id=candidate.id %}" method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="id_name">Name:</label>
+            <input type="text" name="name" value="{{ candidate.name }}" maxlength="255" required="" id="id_name">
+        </div>
+
+        <div>
+            <label for="id_status">Status:</label>
+            <select name="status" id="id_status">
+            </select>
+        </div>
+        
+        <div>
+            <label for="id_cv">Cv:</label>    <a href="/media/{{ candidate.cv }}" target="_blank">Telecharger</a>
+            <p>
+                Changer:  <input type="file" name="cv" id="id_cv">
+            </p>
+
+        </div>
+        <button type="submit">Modifier</button>
+    </form>
+</main>
+
+{% endblock body %}
+
+{% block scripts %}
+    <script src="{% static 'js/main.js' %}" onload="loadItems('{{candidate.status}}')"></script>
+{% endblock scripts %}

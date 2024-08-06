@@ -1,3 +1,20 @@
 * {
-    background-color: pink;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+    display: inline;
+}
+
+input {
+    border-radius: 55px;
+    box-shadow: none;
+    border: 1px solid #161616;
+    margin: 5%;
+    display: inline;
+    height: 60px;
+}
+
+input:focus {
+    box-shadow: 1px 1px rgb(36, 89, 122);
 }

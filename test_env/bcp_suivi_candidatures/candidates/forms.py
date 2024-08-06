@@ -4,4 +4,4 @@ from . import models
 class CreateCandidate(forms.ModelForm):
     class Meta:
         model = models.Candidate
-        fields = ['name', 'status', 'cv', 'slug']
+        fields = ['name', 'status', 'cv']

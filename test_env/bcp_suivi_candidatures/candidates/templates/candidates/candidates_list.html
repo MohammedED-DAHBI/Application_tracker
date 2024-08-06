@@ -4,20 +4,62 @@
     Candidate list
 {% endblock title %}
 
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/candidates_list.css' %}">
+{% endblock links %}
+
 {% block body %}
-    Candidate list
-    <table>
-        {% for candidate in candidates %}
+<main>
+    <table class="table table-striped">
+        <thead class="thead-dark">
             <tr>
-                <td>
-                    <a href="{% url 'candidates:details' slug=candidate.slug %}">
-                        {{ candidate.name }}
-                    </a>
-                </td>
+                <th scope="col">
+                    Nom
+                </th>
+                <th scope="col">
+                    <form>
+                        <div class="multiselect">
+                            <div class="selectBox" onclick="showCheckboxes()">
+                                <select class="custom-select">
+                                    <option>Status</option>
+                                </select>
+                                <div class="overSelect"></div>
+                                </div>
+                                <div id="checkboxes">
+                                <label for="status-1">
+                                    <input type="checkbox" id="status-1" onclick="showCandidates()" value="V" checked/>valide</label>
+                                <label for="status-2">
+                                    <input type="checkbox" id="status-2" onclick="showCandidates()" value="A" checked/>En attente</label>
+                                <label for="status-all">
+                                    <input type="checkbox" id="status-all" onclick="showCandidates()" />Tous</label>
+                            </div>
+                        </div>
+                    </form>
+                </th>
             </tr>
-        {% endfor %}
+            
+        </thead>
+        <tbody id="table-content">
+            {% for candidate in candidates %}
+                <tr>
+                    <td>
+                        <a href="{% url 'candidates:details' id=candidate.id %}">
+                            {{ candidate.name }}
+                        </a>
+                    </td>
+                    <td>
+                        {{ candidate.get_status.label }}
+                    </td>
+                </tr>
+            {% endfor %}
+
     </table>
+</main>
+
 {% endblock body %}
 
-
-
+{% block scripts %}
+    <script src="{% static 'js/main.js' %}" onload="showCandidates()"></script>
+{% endblock scripts %}

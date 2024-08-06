@@ -1,0 +1,50 @@
+table {
+    width: 90%;
+    border: 2px solid #171717;
+    margin: auto;
+}
+
+thead tr {
+    height: 20px;
+    border: 1px solid #171717;
+    overflow: hidden;
+}
+
+.multiselect {
+    width: 200px;
+}
+  
+.selectBox {
+    position: relative;
+}
+  
+.selectBox select {
+    width: 100%;
+    font-weight: bold;
+}
+  
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+  
+#checkboxes {
+    display: none;
+    border: 1px #dadada solid;
+}
+  
+#checkboxes label {
+    display: block;
+}
+  
+#checkboxes label:hover {
+    background-color: #1e90ff;
+}
+
+tbody tr:hover {
+    cursor: pointer;
+    background-color: #4f4f4f;
+}

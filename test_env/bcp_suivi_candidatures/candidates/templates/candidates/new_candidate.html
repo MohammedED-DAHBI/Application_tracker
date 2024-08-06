@@ -1,13 +1,19 @@
 {% extends "layout.html" %}
 {% block title %}
-    Add candidate
+    Nouveau candidat
 {% endblock title %}
 
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/candidate_details.css' %}">
+{% endblock links %}
+
 {% block body %}
-    <h1>New candidate</h1>
+    <h1>Nouveau candidat</h1>
     <form action="{% url 'candidates:new' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" value="Add">
+        <button type="submit">Ajouter</button>
     </form>
 {% endblock body %}
