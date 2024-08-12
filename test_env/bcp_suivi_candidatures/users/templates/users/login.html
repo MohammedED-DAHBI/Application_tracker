@@ -4,19 +4,48 @@
     Login
 {% endblock title %}
 
+{% load static %}
+
 {% block links %}
-    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/candidate_details.css' %}">
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
 {% endblock links %}
 
 {% block body %}
+<main class="container-fluid">
     <form action="{% url 'users:login' %}" method="POST">
         {% csrf_token %}
         <h1>Connexion</h1>
-        {{ form }}
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="id_username">Nom d'utilisateur</label>
+            </div>
+            <div class="col-sm-9">
+                <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="id_password">Mot de passe</label>
+            </div>
+            <div class="col-sm-9">
+                <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
+            </div>
+        </div>
         {% if request.GET.next %}
             <input type="hidden" name="next" value="{{ request.GET.next }}" />
         {% endif %}
-        <button type="submit">Login</button>
+        <div class="row">
+            <div class="col-sm-8"></div>
+            <div class="col-sm-3">
+                <button type="submit">Connexion</button>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        
     </form>
+</main>
+
+
 {% endblock body %}

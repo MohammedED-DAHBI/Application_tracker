@@ -15,15 +15,24 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
     <body>
+        <div class="dark-overlay"></div>
         {% if user.is_authenticated %}
             <nav>
-                <a href="{% url 'candidates:list' %}">Candidates</a>
-                <a href="{% url 'candidates:new' %}">Nouveau candidat</a>
-                <form action="{% url 'users:logout' %}" method="post">
-                    {% csrf_token %}
-                    <input type="submit" value="Deconnexion">
-                </form>
-            </nav>
+                <ul class="nav-list">
+                    <li>
+                        <a href="{% url 'candidates:list' %}">Candidats</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'candidates:new' %}">Nouveau</a>
+                    </li>
+                    <li id="logout_item">
+                        <form action="{% url 'users:logout' %}" method="post" class="logout-form">
+                            {% csrf_token %}
+                            <input type="submit" id="logout_button" value="Déconnexion">
+                        </form>
+                    </li>
+                </ul>
+            </nav> 
         {% endif %}
         
         {% block body %} 

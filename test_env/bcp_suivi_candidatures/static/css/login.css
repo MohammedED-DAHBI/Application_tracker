@@ -2,18 +2,17 @@ body {
     background: url(../../media/orange_background.jpg);
 }
 
-body * {
-    margin: 30px auto;
-}
-
-form {
-    width: 30%;
-    height: 50%;
-    margin-top: 10%;
-    background-color: #f1f1f1;
+main form {
+    width: 45%;
+    height: 420px;
+    margin-top: 50px;
     padding: 15px 30px;
     border-radius: 15px;
-    box-shadow: 0px 0px 3px #12121281;
+    border: none;
+}
+
+.row {
+    height: 70px;
 }
 
 h1 {
@@ -21,34 +20,25 @@ h1 {
     text-align: center;
 }
 
-/* form>div {
-    width: 60%;
-    margin: auto;
-} */
-
-label {
-    display: none;
-}
 
 input {
-    display: block;
     border-radius: 55px;
     box-shadow: none;
     border: 1px solid #161616;
-    margin: auto;
     height: 40px;
-    width: 60%;
+    width: 80%;
     font-size: large;
     padding: 5px 15px;
 }
 
 input:hover {
-    box-shadow: 0px 0px 3px #1483c8;
+    box-shadow: 0px 0px 3px #f39c12;
     border-color: #242424;
 }
 
 input:focus {
-    border: 1px solid #1857bd;
+    border: 3px solid #f39c12;
+    transition-duration: 100ms;
 }
 
 button {
@@ -58,7 +48,7 @@ button {
     padding: 1rem;
     font-weight: bold;
     border: 1px solid #1f1f1f;
-    width: 60%;
+    width: 100%;
     color: #fdfdfd;
 }
 

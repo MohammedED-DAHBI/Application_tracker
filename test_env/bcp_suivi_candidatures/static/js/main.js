@@ -7,6 +7,8 @@ const statusField = {
 }
 console.log(Object.keys(statusField));
 
+var string = "hello";
+
 
 const getCandidates = async() => {
     try {
@@ -23,43 +25,7 @@ const getCandidates = async() => {
 }
 
 
-async function showCandidates() {
-    candidatesList = await getCandidates()
-    console.log(candidatesList);
-    all_status = document.getElementById("status-all");
-    var table = document.getElementById("table-content");
-    table.innerHTML = '';
-    filteredList = candidatesList;
-    if (!all_status.checked) {
-        var count = 0;
-        for (var i = 1; i <= 2; i++) {
-            if (!document.getElementById(`status-${i}`).checked) {
-                filteredList = filteredList.filter(element => element.fields.status != document.getElementById(`status-${i}`).value);
-            } else {
-                count++;
-            };
-        };
-    } else {
-        for (var i = 1; i <= 2; i++)
-        {
-            document.getElementById(`status-${i}`).checked = true;
-        };
-    };
-    filteredList.forEach(element => {
-        candidate = element.fields;
-        table.innerHTML += `
-            <tr onclick="details(${element.pk})">
-                <td>
-                    ${candidate.name}
-                </td>
-                <td>
-                    ${statusField[candidate.status]}
-                </td>
 
-            </tr>
-        `;
-    });
-}
 
 
 
@@ -91,3 +57,64 @@ function loadItems(status) {
         };
     };
 };
+
+function searchPosition() {
+    query = document.getElementById("position_search").value;
+    if (query != "") { 
+        filteredList = filteredList.filter(element => element.fields.position.toLowerCase().includes(query.toLowerCase()));
+    };
+
+
+}
+
+function filterStatus() {
+    all_status = document.getElementById("status-all");
+    if (!all_status.checked) {
+        var count = 0;
+        for (var i = 1; i <= 2; i++) {
+            if (!document.getElementById(`status-${i}`).checked) {
+                filteredList = filteredList.filter(element => element.fields.status != document.getElementById(`status-${i}`).value);
+            } else {
+                count++;
+            };
+        };
+    } else {
+        for (var i = 1; i <= 2; i++)
+        {
+            document.getElementById(`status-${i}`).checked = true;
+        };
+    };
+}
+
+async function filter() {
+    candidatesList = await getCandidates()
+    console.log(candidatesList);
+    var table = document.getElementById("table-content");
+    filteredList = candidatesList;
+    searchPosition();
+    filterStatus();
+    table.innerHTML = '';
+    filteredList.forEach(element => {
+        candidate = element.fields;
+        table.innerHTML += `
+            <tr onclick="details(${element.pk})">
+                <td>
+                    ${candidate.name}
+                </td>
+                <td>
+                    <a class="cv_link" href="../media/${candidate.cv}" target="_blank">Apercu</a>
+                </td>
+                <td>
+                    ${statusField[candidate.status]}
+                </td>
+                <td>
+                    ${candidate.position}
+                </td>
+        `;
+    });
+}
+
+function fillCvLink() {
+    link = document.querySelector(".download-button");
+    link.href = document.getElementById("id_cv");
+}

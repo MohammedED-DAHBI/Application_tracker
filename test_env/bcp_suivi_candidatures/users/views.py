@@ -21,7 +21,8 @@ def login_view(request):
             if "next" in request.POST:
                 return redirect(request.POST.get('next'))
             return redirect("candidates:list")
-    
+    if request.user.is_authenticated:
+        return redirect("candidates:list")
     form = AuthenticationForm()
     return render(request, 'users/login.html', {'form': form})
 

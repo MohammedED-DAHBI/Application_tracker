@@ -1,13 +1,14 @@
-body * {
-    margin: 30px auto;
+main * {
+    margin: 25px auto;
 }
 
 main form {
-    margin-top: 10%;
-    background-color: #f1f1f1;
+    background-color: #f8f8f8;
     padding: 15px 30px;
     border-radius: 15px;
-    box-shadow: 0px 0px 3px #12121281;
+    box-shadow: 0px 0px 10px #121212df;
+    width: 60%;
+    z-index: 3;
 }
 
 h1 {
@@ -15,58 +16,113 @@ h1 {
     text-align: center;
 }
 
-/* form>div {
-    width: 60%;
-    margin: auto;
-} */
+
+.col-sm-2 label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+a {
+    text-decoration: inherit;
+    color: inherit;
+}
 
 input {
-    border-radius: 55px;
+    display: block;
+    border-radius: 8px;
     box-shadow: none;
-    border: 1px solid #161616;
-    margin: auto;
+    border: 2px solid #f39c12;
     height: 40px;
-    width: 60%;
+    width: 80%;
     font-size: large;
     padding: 5px 15px;
 }
 
 select {
-    border-radius: 55px;
+    display: block;
+    background-color: #ffffff;
+    border-radius: 8px;
     box-shadow: none;
-    border: 1px solid #161616;
-    margin: auto;
+    border: 2px solid #f39c12;
     height: 40px;
-    width: 60%;
+    width: 80%;
     font-size: large;
     padding: 5px 15px;
 }
 
 input:hover {
-    box-shadow: 0px 0px 3px #1483c8;
-    border-color: #242424;
+    box-shadow: 0px 0px 3px #f39c12;
+}
+
+select:hover {
+    box-shadow: 0px 0px 3px #f39c12;
+    transition-duration: 300ms;
 }
 
 input:focus {
-    border: 1px solid #1857bd;
+    box-shadow: none !important; 
+    outline: none !important;
+    border-width: 3px !important;
+}
+
+.cv-container {
+    display: flex;
+    justify-content: center;
 }
 
 button {
     display: block;
     background-color: #f39c12;
-    border-radius: 100px;
+    border-radius: 12px;
     padding: 1rem;
     font-weight: bold;
-    border: 1px solid #1f1f1f;
-    width: 60%;
+    border: 2px solid #1f1f1f;
+    width: 100%;
     color: #fdfdfd;
 }
 
 button:hover {
-    background-color: #d35400;
+    transform: translate(-1px, -1px);
+    background-color: #9f4305;
 }
 
 button:active {
     transform: translate(-1px, -1px);
     background-color: #9f4305;
+}
+
+.download-button {
+    text-align: center;
+    color: #fdfdfd;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    background-color: #f39c12;
+    border-radius: 8px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 40px;
+    width: 20%;
+    margin: 0;
+}
+
+.download-button:hover {
+    background-color: #9f4305;
+}
+
+.download-button span {
+    display: block;
+    text-align: center;
+}
+
+#id_cv {
+    width: 60%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin: 0;
+    border-left: none;
 }

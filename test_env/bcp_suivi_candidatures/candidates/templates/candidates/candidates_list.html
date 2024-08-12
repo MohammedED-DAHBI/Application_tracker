@@ -13,36 +13,45 @@
 {% block body %}
 <main>
     <table class="table table-striped">
-        <thead class="thead-dark">
+        <thead>
             <tr>
                 <th scope="col">
-                    Nom
+                    <div class="header-container">
+                        <span class="header-item">Nom</span>
+                    </div>
                 </th>
                 <th scope="col">
-                    <form>
-                        <div class="multiselect">
-                            <div class="selectBox" onclick="showCheckboxes()">
-                                <select class="custom-select">
-                                    <option>Status</option>
-                                </select>
-                                <div class="overSelect"></div>
-                                </div>
-                                <div id="checkboxes">
-                                <label for="status-1">
-                                    <input type="checkbox" id="status-1" onclick="showCandidates()" value="V" checked/>valide</label>
-                                <label for="status-2">
-                                    <input type="checkbox" id="status-2" onclick="showCandidates()" value="A" checked/>En attente</label>
-                                <label for="status-all">
-                                    <input type="checkbox" id="status-all" onclick="showCandidates()" />Tous</label>
-                            </div>
+                    <div class="header-container">
+                        <span class="header-item">CV</span>
+                    </div>
+                </th>
+                <th scope="col">
+                    <div class="multiselect">
+                        <div class="selectBox" onclick="showCheckboxes()">
+                            <select class="custom-select">
+                                <option>Status</option>
+                            </select>
+                            <div class="overSelect"></div>
                         </div>
-                    </form>
+                        <div id="checkboxes">
+                            <label for="status-1">
+                                <input type="checkbox" id="status-1" onclick="filter()" value="V" checked/>Validé</label>
+                            <label for="status-2">
+                                <input type="checkbox" id="status-2" onclick="filter()" value="A" checked/>En attente</label>
+                            <label for="status-all">
+                                <input type="checkbox" id="status-all" onclick="filter()" />Tous</label>
+                        </div>
+                    </div>
+                </th>
+                <th scope="col">
+                    <label for="position_search">Poste  &nbsp;</label>
+                    <input type="text" onkeypress="filter()" id="position_search"/>
                 </th>
             </tr>
             
         </thead>
         <tbody id="table-content">
-            {% for candidate in candidates %}
+            {% comment %} {% for candidate in candidates %}
                 <tr>
                     <td>
                         <a href="{% url 'candidates:details' id=candidate.id %}">
@@ -52,8 +61,11 @@
                     <td>
                         {{ candidate.get_status.label }}
                     </td>
+                    <td>
+                        {{ candidate.position }}
+                    </td>
                 </tr>
-            {% endfor %}
+            {% endfor %} {% endcomment %}
 
     </table>
 </main>
@@ -61,5 +73,5 @@
 {% endblock body %}
 
 {% block scripts %}
-    <script src="{% static 'js/main.js' %}" onload="showCandidates()"></script>
+    <script src="{% static 'js/main.js' %}" onload="filter()"></script>
 {% endblock scripts %}
