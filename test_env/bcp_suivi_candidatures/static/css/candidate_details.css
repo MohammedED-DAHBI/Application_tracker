@@ -17,7 +17,7 @@ h1 {
 }
 
 
-.col-sm-2 label {
+.col-sm-2 label, .col-sm-3 label {
     display: flex;
     justify-content: center;
     align-items: center;

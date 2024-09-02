@@ -17,7 +17,36 @@
             <tr>
                 <th scope="col">
                     <div class="header-container">
+                        <span class="header-item">Entité</span>
+                    </div>
+                </th>
+                <th scope="col">
+                    <div class="header-container">
+                        <span class="header-item">Sous entité</span>
+                    </div>
+                </th>
+                <th scope="col">
+                    <label for="position_search">Profil  &nbsp;</label>
+                    <input type="text" onkeypress="filter()" id="position_search"/>
+                </th>
+                <th scope="col">
+                    <div class="header-container">
                         <span class="header-item">Nom</span>
+                    </div>
+                </th>
+                <th scope="col">
+                    <div class="header-container">
+                        <span class="header-item">Entretien TEAMS</span>
+                    </div>
+                </th>
+                <th scope="col">
+                    <div class="header-container">
+                        <span class="header-item">One-to-one technique</span>
+                    </div>
+                </th>
+                <th scope="col">
+                    <div class="header-container">
+                        <span class="header-item">One-to-one directeur</span>
                     </div>
                 </th>
                 <th scope="col">
@@ -37,15 +66,22 @@
                             <label for="status-1">
                                 <input type="checkbox" id="status-1" onclick="filter()" value="V" checked/>Validé</label>
                             <label for="status-2">
-                                <input type="checkbox" id="status-2" onclick="filter()" value="A" checked/>En attente</label>
+                                <input type="checkbox" id="status-2" onclick="filter()" value="EA" checked/>En attente</label>
+                            <label for="status-3">
+                                <input type="checkbox" id="status-3" onclick="filter()" value="NR" checked/>Non retenu</label>
+                            <label for="status-4">
+                                <input type="checkbox" id="status-4" onclick="filter()" value="AB" checked/>Absent</label>
+                            <label for="status-5">
+                                <input type="checkbox" id="status-5" onclick="filter()" value="NB" checked/>Négotiation</label>
                             <label for="status-all">
                                 <input type="checkbox" id="status-all" onclick="filter()" />Tous</label>
                         </div>
                     </div>
                 </th>
                 <th scope="col">
-                    <label for="position_search">Poste  &nbsp;</label>
-                    <input type="text" onkeypress="filter()" id="position_search"/>
+                    <div class="header-container">
+                        <span class="header-item">Commentaire</span>
+                    </div>
                 </th>
             </tr>
             

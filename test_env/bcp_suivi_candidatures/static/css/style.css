@@ -56,7 +56,7 @@ nav * {
 }
 
 nav:hover {
-    height: 45px;
+    height: 55px;
     transition-duration: 200ms;
 }
 
@@ -80,11 +80,18 @@ nav:hover * {
     padding: 0px 0px;
     background: transparent;
     white-space: nowrap;
-    /* border: 2px solid black; */
     background-color: #e67e04;
     color: #fefefe;
     font-family: 'Rubik-Medium';
     font-weight: bold;
+    width: 50px;
+    overflow: hidden;
+    transition-duration: 400ms;
+    text-align: center;
+}
+
+i {
+    font-size: large;
 }
 
 .nav-list li:hover {
@@ -92,6 +99,16 @@ nav:hover * {
     transition-duration: 300ms;
     border-color: orangered;
     cursor: pointer;
+    width: 35%;
+    transition-duration: 400ms;
+}
+
+.nav-list li span {
+    display: none;
+}
+
+.nav-list li:hover span {
+    display: inline;
 }
 
 .nav-list li a {
@@ -99,6 +116,10 @@ nav:hover * {
     margin: 0;
     width: 100%;
     height: 100%;
+    padding: 3px 3px;
+}
+
+.nav-list li:hover a {
     padding: 3px 15px;
 }
 
@@ -128,6 +149,7 @@ nav:hover * {
     padding: 3px 15px;
     font-family: 'Rubik-Medium';
     font-weight: bold;
+    text-align: center;
 }
 
 #logout_button:hover {

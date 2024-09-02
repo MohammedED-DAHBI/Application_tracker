@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock title %}
+
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/candidate_details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock links %}
+
+{% block body %}
+<main class="container-fluid">
+    <form action="{% url 'users:profile' %}" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="username">Nom</label>
+            </div>
+            <div class="col-sm-9">
+                <input type="text" name="username" value="{{ username }}" disabled>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="mail-addresse">Addresse mail</label>
+            </div>
+            <div class="col-sm-9">
+                <input type="mail" name="mail-addresse" value="{{ mail }}" disabled> 
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="id_old_password">Ancien mot de passe</label>
+            </div>
+            <div class="col-sm-9">
+                <input type="password" name="old_password" autocomplete="current-password" autofocus="" required="" id="id_old_password">            </div>
+        </div>
+        <div class="row new-password-1">
+            <div class="col-sm-3">
+                <label for="id_new_password1">Nouveau mot de passe</label>
+            </div>
+            <div class="col-sm-9">
+                <input type="password" name="new_password1" autocomplete="new-password" required="" aria-describedby="id_new_password1_helptext" id="id_new_password1">
+                <ul>
+                    <li>
+                        Le mot de passe doit avoir au moins 8 caractères
+                    </li>
+                    <li>
+                        Le mot de passe ne peut pas etre entierement numerique
+                    </li>
+                    <li>
+                        Choisissez un mot de passe fort
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="id_new_password2">Confirmer mot de passe</label>
+            </div>
+            <div class="col-sm-9">
+                <input type="password" name="new_password2" autocomplete="new-password" required="" id="id_new_password2">            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <p id="error-message"></p>
+            </div>
+            <div class="col-sm-3">
+                <button type="submit">Confirmer</button>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        
+    </form>
+</main>
+
+
+{% endblock body %}

@@ -9,15 +9,22 @@ main form {
     padding: 15px 30px;
     border-radius: 15px;
     border: none;
+    position: relative;
+    overflow: hidden;
 }
 
 .row {
     height: 70px;
 }
 
+label {
+    color: #010101;
+}
+
 h1 {
     width: fit-content;
     text-align: center;
+    position: relative;
 }
 
 
@@ -59,4 +66,29 @@ button:hover {
 button:active {
     transform: translate(-1px, -1px);
     background-color: #9f4305;
+}
+
+main form * {
+    z-index: 2;
+}
+
+@keyframes slideIn {
+    0% {
+        transform : translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.circle {
+    z-index: 0;
+    position: absolute;
+    top: -300px;
+    left: -550px;
+    width: 800px;
+    height: 800px;
+    border-radius: 100%;
+    /* border-radius: 1000px; */
+    background-color: #f1c40fea;
+    animation: 1s ease-out 0s 1 slideIn ;
 }

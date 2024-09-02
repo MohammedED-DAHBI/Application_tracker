@@ -34,6 +34,7 @@ def new_candidate(request):
     if request.method == "POST":
         form = forms.CreateCandidate(request.POST, request.FILES)
         if form.is_valid():
+            print(form.cleaned_data)
             newcandidate = form.save(commit=False)
             newcandidate.author = Employee.objects.get(user=request.user)
             newcandidate.save()

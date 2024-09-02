@@ -15,10 +15,11 @@
 <main class="container-fluid">
     <form action="{% url 'users:login' %}" method="POST">
         {% csrf_token %}
+        <div class="circle"></div>
         <h1>Connexion</h1>
         <div class="row">
             <div class="col-sm-3">
-                <label for="id_username">Nom d'utilisateur</label>
+                <label for="id_username">Addresse mail</label>
             </div>
             <div class="col-sm-9">
                 <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
@@ -49,3 +50,7 @@
 
 
 {% endblock body %}
+
+{% block scripts %}
+    <script src="{% static 'js/main.js' %}" onload="loginAnimation()"></script>
+{% endblock scripts %}

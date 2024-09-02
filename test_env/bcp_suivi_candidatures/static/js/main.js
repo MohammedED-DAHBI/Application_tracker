@@ -3,7 +3,10 @@ var expanded = false;
 var candidatesList, filteredList = candidatesList;
 const statusField = { 
     V: "Validé",
-    A: "En attente",
+    EA: "En attente",
+    NR : 'Non retenu',
+    AB : 'Absent',
+    NG : 'Négotiation',
 }
 console.log(Object.keys(statusField));
 
@@ -63,15 +66,13 @@ function searchPosition() {
     if (query != "") { 
         filteredList = filteredList.filter(element => element.fields.position.toLowerCase().includes(query.toLowerCase()));
     };
-
-
 }
 
 function filterStatus() {
     all_status = document.getElementById("status-all");
     if (!all_status.checked) {
         var count = 0;
-        for (var i = 1; i <= 2; i++) {
+        for (var i = 1; i <= 5; i++) {
             if (!document.getElementById(`status-${i}`).checked) {
                 filteredList = filteredList.filter(element => element.fields.status != document.getElementById(`status-${i}`).value);
             } else {
@@ -99,7 +100,25 @@ async function filter() {
         table.innerHTML += `
             <tr onclick="details(${element.pk})">
                 <td>
+                    ${candidate.entity}
+                </td>
+                <td>
+                    ${candidate.sub_entity}
+                </td>
+                <td>
+                    ${candidate.position}
+                </td>                
+                <td>
                     ${candidate.name}
+                </td>
+                <td>
+                    &nbsp; &nbsp; &nbsp;${!candidate.teams_interview ? " &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" : candidate.teams_interview} &nbsp; &nbsp; &nbsp;
+                </td>
+                <td>
+                     &nbsp; &nbsp; &nbsp;${!candidate.technical_interview ? " &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" : candidate.technical_interview} &nbsp; &nbsp; &nbsp;
+                </td>
+                <td>
+                     &nbsp; &nbsp; &nbsp;${!candidate.oto_interview ? " &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" : candidate.oto_interview} &nbsp; &nbsp; &nbsp;
                 </td>
                 <td>
                     <a class="cv_link" href="../media/${candidate.cv}" target="_blank">Apercu</a>
@@ -108,8 +127,9 @@ async function filter() {
                     ${statusField[candidate.status]}
                 </td>
                 <td>
-                    ${candidate.position}
+                    ${candidate.comment}
                 </td>
+            </tr>
         `;
     });
 }
