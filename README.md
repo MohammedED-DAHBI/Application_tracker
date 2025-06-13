@@ -29,3 +29,11 @@ Whether you're part of a small team or a large hiring department, this tool ensu
 |------------------|--------------------|------------------------|
 | HTML, CSS, Javascript, Bootstrap  | Python, Django  | MySQL  |
 
+
+## 📸 Screenshots
+
+![Login](https://github.com/MohammedED-DAHBI/Application_tracker/blob/main/Screenshot%202025-06-13%20090234.png)
+
+![Form](https://github.com/MohammedED-DAHBI/Application_tracker/blob/main/Screenshot%202025-06-13%20090255.png)
+
+![Overview](https://github.com/MohammedED-DAHBI/Application_tracker/blob/main/Screenshot%202025-06-13%20090349.png)
